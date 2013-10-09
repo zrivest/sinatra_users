@@ -12,7 +12,11 @@ get '/create_account' do
 end
 
 get '/secret_page' do
-  erb :secret_page
+  if session[:user_id]
+    erb :secret_page
+  else 
+    redirect '/'
+  end 
 end
 
 #====== POST ========
